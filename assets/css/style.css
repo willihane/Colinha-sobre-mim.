@@ -2,21 +2,30 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Zen Loop', cursive;
+    font-family: Catesque Regular;
+
     }
 
     /* definição de variaveis no CSS... podemos usar o :root no começo do código, e obrigatoriamente toda variavel tem que começar com -- */
 :root {
     --main-color: #d6ecdf; 
     --accent-color:  #d6ecdf;
-    --primary-color: #c7777f;
-    --background-color: #4e3150;
+    --primary-color: #4e3150;
+    --background-color: #0f0f0f;
     }
 
     /* para chamar uma das variaveis nos atributos, usamos var("nome da variavel") */
 body {
     background-color: var(--background-color);
 }
+
+/* VER COM O THIAGO DEPOIS: Para se ajustar a todas as telas */
+ /* body{
+    width: 98.7vw;
+    margin: 0 auto;
+    min-width: 600px;
+    max-width: 2000px}   */
+
 
 nav {
     background-color: var(--primary-color);
@@ -51,7 +60,7 @@ nav ol {
 
 nav ol li a {
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     letter-spacing: 2px; /* colocar um espaçamento maior entre as letras do texto, muito usado para criar um ponto de interesse no design */ 
     color: var(--background-color);
     font-weight: 600;
@@ -61,59 +70,54 @@ nav ol li a:hover {
     text-decoration: underline;
 }
 
-.active {
-    font-weight: 800;
-}
-
 main {
 margin-top: 1rem;
 }
 
-h1,
-h2 {
-color: var(--main-color);
-text-align: center;
-}
+/* h1: Titulos principais | h2: titulos secundarios e forms  |  titulo endereço  */
+
 
 h1 {
-  font-size: 3rem; /* 1REM = 16px para configurações padrão de navegador, mas o REM sempre vai respeitar a fonte padrão do navegaor do usuario */ 
-}
-
-h1:hover {
-  text-shadow: #c7777f 2px 5px; /* sombra no texto, sempre com cor, valor horizontal e valor vertical */
+    text-align: center;
+    color: var(--main-color);
+    font-size: 3rem; /* 1REM = 16px para configurações padrão de navegador, mas o REM sempre vai respeitar a fonte padrão do navegaor do usuario */ 
+    text-shadow: var(--primary-color) 2px 5px;
 }
 
 h2 {
 font-size: 2rem;
+color: var(--main-color);
+text-align: center;
 }
 
-h3{
+h2:hover{
+    text-shadow: var(--primary-color) 2px 5px;
+}
+
+h5 {
     font-size: 1.5rem;
     color: var(--main-color);
     text-align: left;
-}
-
-h4 {
-    font-size: 1.5rem;
-    color: var(--main-color);
-    text-align: left;
-}
+} 
 
 /*Estilos da página sobremim.html*/
 
-.resumao {
-display: flex;
-flex-direction: row-reverse;
-width: 80vw; /* tamanho fixo de largura, de 80 pedaços da viewport (area total do navegador) "a viewport sempre vai até o 100 */
-margin: 0 auto; /* 0 de margem para cima e para baixo, automatico para os lados... isso deixa o conteudo ao centro da tela */
-gap: 2rem;
+.linkS{
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
 }
 
 .textos {
+text-align: justify;
 color: var(--accent-color);
 display: flex;
 flex-direction: column;
+padding: 30px;
 justify-content: center;
+align-items: center;
 gap: 1.25rem;
 width: 100%;
 font-size: 1.25rem;
@@ -121,12 +125,20 @@ font-weight: 300;
 user-select: none; /* impedindo que o usuário possa selecionar o conteudo desse bloco */
 }
 
+.resumao {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 80vw; /* tamanho fixo de largura, de 80 pedaços da viewport (area total do navegador) "a viewport sempre vai até o 100 */
+    margin: 0 auto; /* 0 de margem para cima e para baixo, automatico para os lados... isso deixa o conteudo ao centro da tela */
+    gap: 2rem;
+    }
+
 .resumao img {
     height: auto;
     width: max(30%, 350px); /* com o svalor max(), podemos passar 2 valores, e sempre será escolhido o maior entre eles, então quando 30% do espaço disponivel for menor do que 350px, o segundo valor será usado */
-    object-fit: contain; /* ajuste de imagem, para que ela nao corte, ela sempre irá se conter dentro do espaço, ajustando automaticamente */ 
+    object-fit: contain; /* ajuste de imagem, para que ela nao corte, ela sempre irá se conter dentro do espaço, ajustando automaticamente*/ 
     padding: 2px;
-}
+}  
 
 .video {
 margin-top: 1rem;
@@ -134,10 +146,10 @@ margin-top: 1rem;
 
 .youtube {
 width: 70vw;
-  aspect-ratio: 16/9 ; /* manter a proporção automatica do video... para cada 16 de largura, vai ter 9 de altura (esse é o padrão de basicamente qualquer monitor ou tv, por exemplo) */
+aspect-ratio: 16/9 ; /* manter a proporção automatica do video... para cada 16 de largura, vai ter 9 de altura (esse é o padrão de basicamente qualquer monitor ou tv, por exemplo) */
 margin: 0.75rem auto;
 display: block;
-border-radius: 1rem;
+border-radius: 1rem; /* border radius define bordas arredondadas */
 }
 
 footer {
@@ -182,30 +194,29 @@ color: var(--main-color);
 }
 
 
-.contato {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    min-height: 78vh; /* tamanho minimo da tela, mas pode crescer caso coloque mais conteudo... fiz isso pra poder jogar o footer mais pra baixo, pq o conteudo do contato é bem pequeno */
+.container{
+display: flex;
+flex-flow: row;
+justify-content: center;
+align-items: center;
+gap: 2rem;
+width: 100%;
+margin: 0 auto;
+} 
+
+.container form {
     width: 100%;
-    margin: 0 auto;
+    display: flex;
     flex-direction: column;
 }
 
-.contato form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.contato label,
-.contato p {
+.container label,
+.container p {
     color: var(--accent-color);
     margin-bottom: 0.275rem;
 }
 
-.contato input, .contato textarea {
+.container input, .container textarea {
     width: 100%;
     resize: none; /* impedindo que o usuário possa alterar o tamanho da caixa de texto, pra não causar com o meu layout */
     border: 0;
@@ -213,16 +224,16 @@ color: var(--main-color);
     font-size: 1.075rem;
     margin-bottom: 1rem;
     color: var(--accent-color);
-    background-color: var(--background-color);
+    background-color: var(--primary-color);
     border-bottom: 1px solid;
 }
 
-.contato button {
+.container button {
     padding: 0.5rem 1rem;
     width: 100%;
     border: 2px solid var(--main-color);
     border-radius: 0.25rem;
-    background-color: transparent;
+    background-color: var(--primary-color);
     color: var(--main-color);
     font-size: 1.275rem;
     font-weight: 600;
@@ -232,24 +243,37 @@ color: var(--main-color);
     transition: 0.3s ease-out;
 }
 
-.contato button:hover {
-    color: var(--background-color);
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
+
+.container button:hover {
+    color: var(--accent-color);
+    background-color: var(--primary-color);
+    border-color: var(--background-color);
 }
 
-.contato h2 {
-    font-size: 1.5rem;
+
+.ml-50 {
+    margin-left: 100px;
+    color: #d6ecdf;
 }
 
 .mapa {
+    width: max(40vw, 500px);
+    height: auto;
     aspect-ratio: 16/9;
 }
+
+
 
   /* Ajustes para mobile, por aqui, eu consigo escolher como a tela vai se comportar em tamanhos menores do que 767px, basicamente qualquer celular... poderia ter vários desses @media, um pra cada tamanho de tela diferente que precise, como tablets e telas muito grandes, por exemplo */
 
 @media (max-width: 767px) {
     nav ul {
+    justify-content: center;
+    }
+}
+
+@media (max-width: 767px) {
+    nav ol {
     justify-content: center;
     }
 }
