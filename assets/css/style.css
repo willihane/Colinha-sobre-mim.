@@ -193,7 +193,7 @@ color: var(--main-color);
     opacity: 1; /* voltando a opacidade da imagem pra 100% */
 }
 
-
+/* Entre em contato comigo */
 .container{
 display: flex;
 flex-flow: row;
