@@ -14,7 +14,7 @@
     <nav>
         <ul>
             <li>
-                <a href="index.html">Home</a>
+                <a href="colinha.html">Home</a>
             </li>
             <li>
                 <a href="contato.html">Contato</a>
@@ -50,7 +50,9 @@
             <br>  
 <hr color="black">
 <br>
-        <h2> &nbsp;Entre em contato comigo.. 🖊️ </h2>
+
+        <h2 id="element"></h2>
+        
         <br>
         <br>
     <!-- Criando formulário -->
@@ -58,15 +60,15 @@
         <div>
             <form>
                 <label for="nome">Nome:</label> <br>
-                <input type="text" id="nome" onkeyup="validaNome()" >
+                <input type="text" id="nome" onkeyup="validaNome()" required>
                 <div id="txtNome"></div>
 
                 <label for="email">E-mail:</label> <br>
-                <input type="email" id="email" onkeyup="validaEmail()">
+                <input type="email" id="email" onkeyup="validaEmail()" required>
                 <div id="txtEmail"></div>
 
                 <label for="assunto">Assunto:</label> <br>
-                <textarea name="assunto" id="assunto" cols="45" rows="7" onkeyup="validaAssunto()"></textarea>
+                <textarea name="assunto" id="assunto" cols="45" rows="7" onkeyup="validaAssunto()" required></textarea>
                 <div id="txtAssunto"></div>
 
                 <br>
@@ -104,6 +106,17 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+
+    <script src="https://unpkg.com/typeit@8.5.4/dist/index.umd.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        new TypeIt("#element", {
+            strings: ["Entre em contato comigo:"],
+            loop: true
+        }).go();
+    });
+    </script>
 
 </body>
 </html>
