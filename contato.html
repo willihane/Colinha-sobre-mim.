@@ -14,10 +14,10 @@
     <nav>
         <ul>
             <li>
-                <a href="resumao.html">Home</a>
+                <a href="index.html">Home</a>
             </li>
             <li>
-                <a href="sobremim.html">Contato</a>
+                <a href="contato.html">Contato</a>
             </li>
         </ul>
     </nav>
@@ -58,19 +58,20 @@
         <div>
             <form>
                 <label for="nome">Nome:</label> <br>
-                <input type="text" id="nome">
-            <br>
-            <br>
+                <input type="text" id="nome" onkeyup="validaNome()" >
+                <div id="txtNome"></div>
+
                 <label for="email">E-mail:</label> <br>
-                <input type="email" id="email">
-            <br>
-            <br>
+                <input type="email" id="email" onkeyup="validaEmail()">
+                <div id="txtEmail"></div>
+
                 <label for="assunto">Assunto:</label> <br>
-                <textarea name="assunto" id="assunto" cols="45" rows="7"></textarea>
-            <br>
-            <br>
-                <!-- Botão ficcticio -->
-                <button>Enviar</button>
+                <textarea name="assunto" id="assunto" cols="45" rows="7" onkeyup="validaAssunto()"></textarea>
+                <div id="txtAssunto"></div>
+
+                <br>
+                <br>
+                <button onclick="enviar()">Enviar</button>
 
             
             </form>
@@ -84,10 +85,14 @@
             <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.3412775147713!2d-34.921398585669316!3d-8.168330584117582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7aae1ba681abb2f%3A0xaab0b0b6849d2c8f!2sShopping%20Guararapes!5e0!3m2!1spt-BR!2sbr!4v1652986404132!5m2!1spt-BR!2sbr" 
             class="mapa"
+            id="mapa"
             style="border: 0"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
+            onmousemove="mapaZoom()"
+            onmouseout="mapaNormal()"
+
         ></iframe>
         </div>
     </main>
@@ -97,6 +102,8 @@
         By: <span>Williane Silva - 2022</span> 
         </p>
     </footer>
+
+    <script src="assets/js/script.js"></script>
 
 </body>
 </html>
